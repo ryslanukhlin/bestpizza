@@ -11,6 +11,7 @@
 </head>
 <body>
     @include('part.Navbar')
+    @include('part.Pizza')
     <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
