@@ -1926,19 +1926,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      pizza: []
+      pizza: [],
+      last_page: '',
+      prev_page_url: '',
+      next_page_url: '',
+      current_page: '',
+      category: ['Сырная', 'Фруктовая', 'Мясная', 'Грибная']
     };
   },
   mounted: function mounted() {
-    var _this = this;
+    this.PaginatePizza();
+  },
+  methods: {
+    PaginatePizza: function PaginatePizza(url) {
+      var _this = this;
 
-    axios.get('api/pizza').then(function (res) {
-      console.log(res.data);
-      _this.pizza = res.data;
-    });
+      url = url || 'http://127.0.0.1:8000/api/pizza';
+      axios.get(url).then(function (res) {
+        console.log(res.data.data);
+        console.log(res);
+        _this.last_page = res.data.last_page;
+        _this.prev_page_url = res.data.prev_page_url;
+        _this.next_page_url = res.data.next_page_url;
+        _this.pizza = res.data.data;
+        _this.current_page = res.data.current_page;
+      });
+    }
   }
 });
 
@@ -6376,7 +6413,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.col-md-3[data-v-5708d12d]{\n    margin-top: 30px;\n}\n.card-img-top[data-v-5708d12d]{\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.col-md-3[data-v-5708d12d]{\n    margin-top: 30px;\n}\n.card-img-top[data-v-5708d12d]{\n    width: 100%;\n    height: 150px;\n}\n", ""]);
 
 // exports
 
@@ -38172,6 +38209,51 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        {
+          staticClass: "btn-group mt-4",
+          staticStyle: { margin: "0 auto" },
+          attrs: { role: "group", "aria-label": "Basic example" }
+        },
+        [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-secondary",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.PaginatePizza("http://127.0.0.1:8000/api/pizza/")
+                }
+              }
+            },
+            [_vm._v("Все")]
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.category, function(cat) {
+            return _c(
+              "a",
+              {
+                staticClass: "btn btn-secondary",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.PaginatePizza(
+                      "http://127.0.0.1:8000/api/pizza/" + cat
+                    )
+                  }
+                }
+              },
+              [_vm._v(_vm._s(cat))]
+            )
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "row" },
@@ -38187,6 +38269,8 @@ var render = function() {
               _c("h5", { staticClass: "card-title" }, [
                 _vm._v(_vm._s(pizz.title))
               ]),
+              _vm._v(" "),
+              _c("h6", [_vm._v(_vm._s(pizz.categoryName))]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text" }, [
                 _vm._v(_vm._s(pizz.description))
@@ -38206,7 +38290,89 @@ var render = function() {
         ])
       }),
       0
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "nav",
+        {
+          staticStyle: { margin: "0 auto", "margin-top": "40px" },
+          attrs: { "aria-label": "Page navigation example" }
+        },
+        [
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            [
+              _c(
+                "li",
+                {
+                  staticClass: "page-item",
+                  class: { disabled: !_vm.prev_page_url }
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function($event) {
+                          return _vm.PaginatePizza(_vm.prev_page_url)
+                        }
+                      }
+                    },
+                    [_vm._v("Previous")]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.last_page, function(page) {
+                return _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      class: { "text-danger": page === _vm.current_page },
+                      on: {
+                        click: function($event) {
+                          return _vm.PaginatePizza(
+                            "http://127.0.0.1:8000/api/pizza?page=" + page
+                          )
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(page))]
+                  )
+                ])
+              }),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  staticClass: "page-item",
+                  class: { disabled: !_vm.next_page_url }
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function($event) {
+                          return _vm.PaginatePizza(_vm.next_page_url)
+                        }
+                      }
+                    },
+                    [_vm._v("Next")]
+                  )
+                ]
+              )
+            ],
+            2
+          )
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = []

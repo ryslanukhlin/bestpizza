@@ -18,4 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('pizza','API\pizzaController');
+//Route::apiResource('pizza','API\pizzaController');
+Route::get('pizza','API\pizzaController@getpaginate');
+Route::get('pizza/{category}','API\pizzaController@getcategory');
