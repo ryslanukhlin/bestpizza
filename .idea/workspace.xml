@@ -21,10 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6e73ce2b-22c1-4ae8-ade8-219c9acbbee1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/pizzaController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Pizza.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Pizza.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +185,8 @@
       <workItem from="1598988659425" duration="2433000" />
       <workItem from="1599020567554" duration="460000" />
       <workItem from="1599021080364" duration="6270000" />
-      <workItem from="1599062792095" duration="11290000" />
+      <workItem from="1599062792095" duration="12074000" />
+      <workItem from="1599111304994" duration="1785000" />
     </task>
     <servers />
   </component>

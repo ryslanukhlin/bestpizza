@@ -8,7 +8,8 @@
                 v-on:click="PaginatePizza('http://127.0.0.1:8000/api/pizza/' + cat)">{{cat}}</a>
             </div>
         </div>
-        <div class="row">
+        <div class="lds-ring" v-if="loader"><div></div><div></div><div></div><div></div></div>
+        <div class="row" v-else>
             <div class="col-md-3" v-for="pizz in pizza">
                 <div class="card">
                     <img v-bind:src="pizz.imgIrl" class="card-img-top" alt="imgcart">
@@ -22,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="last_page > 1">
             <nav aria-label="Page navigation example" style="margin: 0 auto; margin-top: 40px;">
                 <ul class="pagination">
                     <li class="page-item" v-bind:class="{disabled : !prev_page_url}"><a class="page-link"
@@ -46,8 +47,8 @@ export default {
           prev_page_url: '',
           next_page_url: '',
           current_page: '',
-          category: ['Сырная','Фруктовая','Мясная','Грибная']
-
+          category: ['Сырная','Фруктовая','Мясная','Грибная'],
+          loader: true
       }
     },
     mounted() {
@@ -65,6 +66,9 @@ export default {
                     this.next_page_url = res.data.next_page_url
                     this.pizza = res.data.data;
                     this.current_page = res.data.current_page
+                })
+                .finally(() => {
+                    this.loader = false
                 });
         }
     }
@@ -79,4 +83,42 @@ export default {
         width: 100%;
         height: 150px;
     }
+    .lds-ring {
+        display: inline-block;
+        position: relative;
+        margin-left: 45%;
+        margin-top: 30px;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border: 8px solid black;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: black transparent transparent transparent;
+    }
+    .lds-ring div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+    .lds-ring div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+    .lds-ring div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
 </style>

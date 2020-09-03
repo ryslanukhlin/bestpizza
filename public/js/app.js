@@ -1947,6 +1947,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1955,7 +1956,8 @@ __webpack_require__.r(__webpack_exports__);
       prev_page_url: '',
       next_page_url: '',
       current_page: '',
-      category: ['Сырная', 'Фруктовая', 'Мясная', 'Грибная']
+      category: ['Сырная', 'Фруктовая', 'Мясная', 'Грибная'],
+      loader: true
     };
   },
   mounted: function mounted() {
@@ -1974,6 +1976,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.next_page_url = res.data.next_page_url;
         _this.pizza = res.data.data;
         _this.current_page = res.data.current_page;
+      })["finally"](function () {
+        _this.loader = false;
       });
     }
   }
@@ -6413,7 +6417,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.col-md-3[data-v-5708d12d]{\n    margin-top: 30px;\n}\n.card-img-top[data-v-5708d12d]{\n    width: 100%;\n    height: 150px;\n}\n", ""]);
+exports.push([module.i, "\n.col-md-3[data-v-5708d12d]{\n    margin-top: 30px;\n}\n.card-img-top[data-v-5708d12d]{\n    width: 100%;\n    height: 150px;\n}\n.lds-ring[data-v-5708d12d] {\n    display: inline-block;\n    position: relative;\n    margin-left: 45%;\n    margin-top: 30px;\n    width: 80px;\n    height: 80px;\n}\n.lds-ring div[data-v-5708d12d] {\n    box-sizing: border-box;\n    display: block;\n    position: absolute;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border: 8px solid black;\n    border-radius: 50%;\n    -webkit-animation: lds-ring-data-v-5708d12d 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\n            animation: lds-ring-data-v-5708d12d 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\n    border-color: black transparent transparent transparent;\n}\n.lds-ring div[data-v-5708d12d]:nth-child(1) {\n    -webkit-animation-delay: -0.45s;\n            animation-delay: -0.45s;\n}\n.lds-ring div[data-v-5708d12d]:nth-child(2) {\n    -webkit-animation-delay: -0.3s;\n            animation-delay: -0.3s;\n}\n.lds-ring div[data-v-5708d12d]:nth-child(3) {\n    -webkit-animation-delay: -0.15s;\n            animation-delay: -0.15s;\n}\n@-webkit-keyframes lds-ring-data-v-5708d12d {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-ring-data-v-5708d12d {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n\n", ""]);
 
 // exports
 
@@ -38254,125 +38258,134 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.pizza, function(pizz) {
-        return _c("div", { staticClass: "col-md-3" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: { src: pizz.imgIrl, alt: "imgcart" }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(pizz.title))
-              ]),
-              _vm._v(" "),
-              _c("h6", [_vm._v(_vm._s(pizz.categoryName))]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(pizz.description))
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mb-1" }, [
-                _vm._v(_vm._s(pizz.price) + " Руб")
-              ]),
-              _vm._v(" "),
-              _c(
-                "a",
-                { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                [_vm._v("Go somewhere")]
-              )
-            ])
-          ])
+    _vm.loader
+      ? _c("div", { staticClass: "lds-ring" }, [
+          _c("div"),
+          _c("div"),
+          _c("div"),
+          _c("div")
         ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "nav",
-        {
-          staticStyle: { margin: "0 auto", "margin-top": "40px" },
-          attrs: { "aria-label": "Page navigation example" }
-        },
-        [
-          _c(
-            "ul",
-            { staticClass: "pagination" },
-            [
-              _c(
-                "li",
-                {
-                  staticClass: "page-item",
-                  class: { disabled: !_vm.prev_page_url }
-                },
-                [
+      : _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.pizza, function(pizz) {
+            return _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("img", {
+                  staticClass: "card-img-top",
+                  attrs: { src: pizz.imgIrl, alt: "imgcart" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h5", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(pizz.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("h6", [_vm._v(_vm._s(pizz.categoryName))]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(pizz.description))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mb-1" }, [
+                    _vm._v(_vm._s(pizz.price) + " Руб")
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "a",
-                    {
-                      staticClass: "page-link",
-                      on: {
-                        click: function($event) {
-                          return _vm.PaginatePizza(_vm.prev_page_url)
-                        }
-                      }
-                    },
-                    [_vm._v("Previous")]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _vm._l(_vm.last_page, function(page) {
-                return _c("li", { staticClass: "page-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link",
-                      class: { "text-danger": page === _vm.current_page },
-                      on: {
-                        click: function($event) {
-                          return _vm.PaginatePizza(
-                            "http://127.0.0.1:8000/api/pizza?page=" + page
-                          )
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(page))]
+                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                    [_vm._v("Go somewhere")]
                   )
                 ])
-              }),
-              _vm._v(" "),
+              ])
+            ])
+          }),
+          0
+        ),
+    _vm._v(" "),
+    _vm.last_page > 1
+      ? _c("div", { staticClass: "row" }, [
+          _c(
+            "nav",
+            {
+              staticStyle: { margin: "0 auto", "margin-top": "40px" },
+              attrs: { "aria-label": "Page navigation example" }
+            },
+            [
               _c(
-                "li",
-                {
-                  staticClass: "page-item",
-                  class: { disabled: !_vm.next_page_url }
-                },
+                "ul",
+                { staticClass: "pagination" },
                 [
                   _c(
-                    "a",
+                    "li",
                     {
-                      staticClass: "page-link",
-                      on: {
-                        click: function($event) {
-                          return _vm.PaginatePizza(_vm.next_page_url)
-                        }
-                      }
+                      staticClass: "page-item",
+                      class: { disabled: !_vm.prev_page_url }
                     },
-                    [_vm._v("Next")]
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          on: {
+                            click: function($event) {
+                              return _vm.PaginatePizza(_vm.prev_page_url)
+                            }
+                          }
+                        },
+                        [_vm._v("Previous")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.last_page, function(page) {
+                    return _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          class: { "text-danger": page === _vm.current_page },
+                          on: {
+                            click: function($event) {
+                              return _vm.PaginatePizza(
+                                "http://127.0.0.1:8000/api/pizza?page=" + page
+                              )
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(page))]
+                      )
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: { disabled: !_vm.next_page_url }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          on: {
+                            click: function($event) {
+                              return _vm.PaginatePizza(_vm.next_page_url)
+                            }
+                          }
+                        },
+                        [_vm._v("Next")]
+                      )
+                    ]
                   )
-                ]
+                ],
+                2
               )
-            ],
-            2
+            ]
           )
-        ]
-      )
-    ])
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
