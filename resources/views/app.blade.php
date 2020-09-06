@@ -11,7 +11,8 @@
 </head>
 <body>
     @include('part.Navbar')
-    @include('part.Pizza')
+    <div class="mb-100" style="margin-bottom: 50px"></div>
+    @yield('content')
     <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

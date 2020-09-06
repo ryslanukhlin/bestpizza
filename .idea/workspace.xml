@@ -20,9 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e73ce2b-22c1-4ae8-ade8-219c9acbbee1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/Actions.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/Register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/SugnIn.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0a328382-95d6-474a-9633-dda203ddb78f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0a328382-95d6-474a-9633-dda203ddb78f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Pizza.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Pizza.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/Home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/part/Navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/part/Navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +198,12 @@
       <workItem from="1599021080364" duration="6270000" />
       <workItem from="1599062792095" duration="12074000" />
       <workItem from="1599111304994" duration="1785000" />
+      <workItem from="1599113293546" duration="1519000" />
+      <workItem from="1599139560027" duration="3038000" />
+      <workItem from="1599143998717" duration="216000" />
+      <workItem from="1599152976757" duration="6353000" />
+      <workItem from="1599221875472" duration="16799000" />
+      <workItem from="1599394758651" duration="3570000" />
     </task>
     <servers />
   </component>
@@ -218,5 +235,13 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="604" y="341" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1598985654188" />
+    <state x="667" y="305" width="312" height="243" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1599395289648">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="667" y="305" width="312" height="243" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.834@0.0.1536.834" timestamp="1599395289648" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1599227680123">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1599227680123" />
   </component>
 </project>
